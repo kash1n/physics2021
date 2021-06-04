@@ -1,1 +1,77 @@
 \section{Спин.}
+	Эксперименты показывают, что электрон на ряду с моментом импульса имеет еще собственный момент импульс - \textit{спин}, не связанный с его движением в пространстве. Проекции этого момент на на заданное направление может принимать только 2 значения $\pm\frac{\hbar}{2}$ (остальные мы в этом курсе не рассматриваем). \\
+	Получается, что электрон на самом деле обладает четырьмя степенями свободы - тремя пространственными и спин. И его волновая функция $\psi = \psi(\textbf{r}, \zeta)$, где $\zeta$ - дискретная переменная, отвечающая проекции спина на ось $z$ (например, выбрали $z$). $\zeta=\pm\frac{1}{2}$ (в единицах $\hbar$). Получается, что состояние частицы описывается упорядоченной парой функций
+	$$
+		\psi = \left( 
+		\begin{array}{c}
+			\psi_1(\textbf{r}) \\
+			\psi_2(\textbf{r}) \\
+		\end{array} 
+		\right) = \left( 
+		\begin{array}{c}
+			\psi(\textbf{r}, \frac{1}{2}) \\
+			\psi(\textbf{r}, -\frac{1}{2}) \\
+		\end{array} \right) 
+	$$
+	Формально это означает, что теперь волновые функции принадлежат не просто $\mathcal{H}=L^2(\mathbb{R}^3)$, а тензорному произведению $\mathcal{H}_S = L^2(\mathbb{R}^3)\otimes\mathbb{C}^2$. Наблюдаемая $\hat{A}$ из $\mathcal{H}$ соответствует наблюдаемой $\hat{A}\otimes\hat{I}$ в $\mathcal{H}_S$, а $\hat{S}$ в $\mathbb{C}^2$ соответствует $\hat{I}\otimes\hat{S}$ в $\mathcal{H}_S$. В общем случае скалярное произведение задается так: 
+	$$
+		(\psi,\varphi) = \int d^3x (\psi_1^{*}\varphi_1 + \psi_2^{*}\varphi_2)
+	$$
+	а вероятность того, что проекция спина $S_z$ равна $\pm\frac{\hbar}{2}$ такая:
+	$$
+		w\left(\zeta = \pm\frac{1}{2}\right) = |(\psi_{\zeta=\pm\frac{1}{2}},\psi)|^2 = \int d^3x |\psi_{1,2}|^2
+	$$
+	\noindent\textbf{Оператор спина}\\
+	$$	
+		\hat{\textbf{S}} = \frac{\hbar}{2}\bm{\sigma}, \ \ \ \bm{\sigma} = (\sigma_1,\sigma_2,\sigma_3), \ \ \ \hat{S}_k = \frac{\hbar}{2}\sigma_k, \ \ \ [\hat{S}_k, \hat{S}_n] = i\hbar\epsilon_{knl}\hat{S}_l
+	$$
+	$\epsilon_{knl}$ - символ Леви-Чивиты.\\
+	$\sigma_k$ - матрицы $2\times2$, что у $\hat{\textbf{S}_k}$ только два собственных значения $\pm\frac{\hbar}{2}$. Тогда
+	$$
+		\sigma^2_k = I,  \ \ \ [\sigma_k, \sigma_n] \equiv \sigma_k\sigma_n-\sigma_n\sigma_k = 2i\epsilon_{knl}\sigma_l
+	$$
+	Но это мы проецировали $\hat{\textbf{S}}$ на $z$. Если ввести проекцию спина на произвольную ось ($\textbf{n}$ - единичный вектор) $\hat{\textbf{S}}_{\textbf{n}} = \frac{\hbar}{2}\textbf{n}\cdot\bm{\sigma}$, то его собственные значения тоже должны быть $\pm\frac{\hbar}{2}$. Тогда 
+	$$
+		(\textbf{n}\cdot\bm{\sigma})^2 = I = n_k\sigma_k n_l\sigma_l \equiv \frac{1}{2}n_k n_l(\sigma_k\sigma_l + \sigma_l\sigma_k)
+	$$
+	В силу произвольности $\textbf{n}$ матрицы $\sigma_k$ должны удовлетворять:
+	$$
+		\{\sigma_k,\sigma_l\} \equiv \sigma_k\sigma_l + \sigma_l\sigma_k = 2\delta_{kl}
+	$$
+	Полученные три условия эквивалентны одному:
+	$$
+		\left\{
+			\begin{array}{l}
+				\sigma^2_k = I\\
+				\left[\sigma_k, \sigma_n\right] = 2i\epsilon_{knl}\sigma_l\\
+				\{\sigma_k,\sigma_l\} = 2\delta_{kl}\\
+			\end{array}
+		\right.
+		 \ \ \ \Leftrightarrow  \ \ \ \sigma_k\sigma_n = \delta_{kn} + i\epsilon_{knl}\sigma_l
+	$$
+	Стандартный выбор $\sigma_k$ такой:
+	$$
+		\sigma_1 = \left( 
+		\begin{array}{cc}
+			0 & 1\\
+			1 & 0\\
+		\end{array} 
+		\right), \ \ \ 
+		\sigma_2 = \left( 
+		\begin{array}{cc}
+		0 & -i\\
+		i & 0\\
+		\end{array} 
+		\right), \ \ \
+		\sigma_3 = \left( 
+		\begin{array}{cc}
+		1 & 0\\
+		0 & -1\\
+		\end{array} 
+		\right)
+	$$
+	Эти матрицы называются матрицами Паули. \\
+	Квадрат спина:
+	$$
+		\hat{\textbf{S}}^2 = \sum\hat{S}_k^2 = \hbar^2 s(s+1) I, \ \ \ \ s = \frac{1}{2}
+	$$
