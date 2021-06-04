@@ -1,0 +1,81 @@
+\section {Движение в центрально-симметричном поле}
+Рассмотрим движение частицы в стационарном поле 
+$$U = U(r), r = |r| = \sqrt{(x^2 + y^2 + z^2)}$$
+
+Такое поле называется {\bf центрально-симметричным}, или, коротко,
+{\bf центральным}. В этом случае гамильтониан
+
+$$\hat H = \frac{\hat p^2}{2m_e} + U(r)$$
+
+коммутирует с оператором орбитального момента:
+
+$$[\hat H, \hat L] = 0$$
+
+Для начала покажем, что 
+$$\hat p^2 = \hbar^2 \nabla = - \frac{\hbar ^2}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) + \frac{\hat L^2}{r^2}$$
+
+Иммеем:
+$$\hat L^2 = (r \times \hat p)^2 = - (\hat p \times r) \cdot (r \times \hat p) = - \hat p \cdot (r \times (r \times \hat p)) = - \hat p \cdot (r (r \cdot \hat p) - r^2 \hat p)$$
+
+Из соотножения $[\hat p_n, x_m] = - i \hbar \delta_{nm}$ следует
+$$[\hat p \cdot r, r \cdot \hat p] = - 3 i \hbar,$$
+$$[\hat p, r^2] = - 2 i \hbar r,$$
+
+используя которые, находим
+$$\hat L^2 = r^2 \hat p^2 - (r \cdot \hat p)^2 + i \hbar r \cdot \hat p.$$
+
+Далее:
+
+$$r \cdot \hat p = -i \hbar r \cdot \nabla = -i \hbar r \frac{\partial}{\partial r}$$
+
+$$(r \cdot \hat p)^2 = - \hbar^2 \left( r \frac{\partial}{\partial r} + r^2\frac{\partial^2}{\partial r^2} \right).$$
+
+В итоге получаем выражения для $\hat p^2$, откуда сразу следует $[\hat L, \hat p^2] = 0$ и, следовательно, $[\hat H, \hat L] = 0$.
+
+Стационарное уравнение Шрёдингера для частицы в центральном поле принимает вид:
+
+$$ \left[ \frac{\hbar ^ 2}{2 m_e r^2} \frac{\partial}{\partial r} \left (r^2 \frac{\partial}{\partial r}
+\right) + \frac{\hat L^2}{2 m_e r^2} + U(r) \right] \psi = E \psi$$
+
+Так как орбитальный момент $\hat L$ - интеграл движения (из того, что коммутирует с гамильтонианом), то любая собственная функция гамильтониана представляется в виде радиаольной функции, зависящей только от $r$ и сферической функции от $\theta, \phi$
+
+$$\psi (r, \theta, \phi) = R(r) Y_l^m (\theta, \phi)$$.
+
+Очевидно, что на $ Y_l^m (\theta, \phi)$ в уравнении Шредингера можно сократить. Для радиальной функции получаем уравнение
+
+$$ \left[ \frac{\hbar ^ 2}{2 m_e r^2} \frac{\partial}{\partial r} \left (r^2 \frac{\partial}{\partial r}
+\right) + \frac{\hbar ^ 2 l (l + 1)}{2 m_e r^2} + U(r) \right] R(r) = E R(r)$$
+
+Удобно ввести новую функцию
+
+$$R(r) = \frac{\chi (r)}{r}$$
+
+Она удовлетворяет {\bf Радиальному уравнению Шрёдингера}:
+
+$$ \left[ \frac{\hbar ^ 2}{2 m_e r^2} \frac{d^2}{d r^2} + U_l(r) \right] \chi = E \chi,$$
+
+где введен {\bf эффективный потенциал}
+
+$$U_l(r) = U(r) + \frac{\hbar^2 l (l + 1)}{2 m_e r^2}$$
+
+Условие нормировки $\chi (r)$ совпадает с условием нормировки одномерной волновой функции:
+
+$$\int d^3 x |\psi|^2 = \int_0^\infty drr^2|R|^2 = \int_0^\infty dr |\chi|^2 = 1$$
+
+Выясним ассимптотику радиальной функции $\chi (r)$, при $r \rightarrow 0$.
+Оставляя наиболее сингуларные члены в радиальном уравнении Шрёдингера, получаем:
+
+$$ \chi'' - l * (l + 1) r^{-2} \chi = 0 $$
+
+Ищем решение в виде $\chi = Cr^s$.
+После подстановки получаем $s = -l, l+1$
+
+Учитывая, что волновая функция имеет вид
+
+$$\psi = \frac{\chi (r)}{r} Y_l^m (\theta, \phi)$$,
+
+из требования непрерывности $\psi$ получим граничное условие
+
+$$\psi (0) = 0$$
+
+Следовательно $\chi (r) \approx Cr^{l+1}$ при $r \rightarrow 0$.
