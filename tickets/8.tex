@@ -1,1 +1,162 @@
-\section{Оператор момента импульса}
+\section{Оператор момента импульса.}
+	\begin{scriptsize}
+	\begin{spacing}{0.3}
+		\noindent \textbf{Аппарат для доказательств (алгебра операторов момента в общем виде).}\\
+		Пусть есть безразмерный (в единицах $\hbar$) оператор $\hat{J}$ с тремя компонентами, для которого выполнено:
+		\begin{itemize}
+			\item $[\hat{J}_k, \hat{J}_n] = i\epsilon_{kns}\hat{J}_s $
+			\item $[\hat{J}_k, \hat{J}^2] = 0$
+		\end{itemize}
+		Тогда:
+		$$
+			\hat{J}_{+} = \hat{J}_x+i\hat{J}_y, \ \ \ \ \hat{J}_{-} = \hat{J}_x - i\hat{J}_y
+		$$
+		$$
+			[\hat{J}_z, \hat{J}_{\pm}] = \pm \hat{J}_{\pm}, \ \ \ [\hat{J}_{+}, \hat{J}_{-}] = 2\hat{J}_z, \ \ \ [\hat{J}^2, \hat{J}_{\pm}] = [\hat{J}^2, \hat{J}_z] = 0, 
+		$$
+		$$
+			\hat{J}^2 = \frac{1}{2}(\hat{J}_{+}\hat{J}_{-} + \hat{J}_{-}\hat{J}_{+}) + \hat{J}_z, \ \ \ \hat{J}_{-}\hat{J}_{+} = \hat{J}^2 - \hat{J}_z(\hat{J}_z + 1), \ \ \ \hat{J}_{+}\hat{J}_{-} = \hat{J}^2 - \hat{J}_z(\hat{J}_z - 1) 
+		$$
+		И если у $\hat{J}^2$ и $\hat{J}_z$ существует хотя бы один общий собственный вектор $\psi_{j,m}$, то их спектр такой:
+		$$
+			\hat{J}^2 \psi_{j,m} = j(j + 1)\psi_{j,m}, \ \ \ \ j = 0, \frac{1}{2}, 1, \frac{3}{2}, 2, \frac{5}{2}, 3, ...
+		$$
+		$$
+			\hat{J}_z \psi_{j,m} = m \psi_{j,m}, \ \ \ \ \ m = -j, -j + 1, ... , j - 1, j.
+		$$
+		$$
+			\hat{J}_{\pm} \psi_{j,m} = (j(j + 1) - m (m \pm 1))^{\frac{1}{2}} \psi_{j,m\pm1}
+		$$
+		$$
+			\hat{J}_{+}\psi_{j,j}= \hat{J}_{-}\psi_{j,-j} = 0
+		$$
+		Доказательства всей этой фигни пусть будут взяты на веру. (там очень много).
+	\end{spacing}
+	\end{scriptsize}
+	\bigskip
+	\noindent \textbf{Оператор момента импульса.}\\
+	Естественное определение:\\
+	\begin{minipage}{0.6\textwidth}
+		$$
+			\hat{\textbf{L}} = \hat{\textbf{r}} \times \hat{\textbf{p}} = -i\hbar \hat{\textbf{r}} \times \nabla = \left| 
+			\begin{array}{ccc}
+				\hat{\textbf{e}}_x & \hat{\textbf{e}}_y & \hat{\textbf{e}}_z \\
+				\hat{x} & \hat{y} & \hat{z} \\
+				\hat{p}_x & \hat{p}_y & \hat{p}_z \\
+			\end{array} 
+			\right| 
+		$$
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.35\textwidth}
+		Это генератор группы вращений в пространстве волновых функций.
+	\end{minipage}
+	\noindent Знаем: $[\hat{x}_k, \hat{p}_n] = i\hbar \delta_{kn}$.\\
+	$$
+		[\hat{L}_x, \hat{L}_y] = [\hat{y}\hat{p}_z - \hat{z}\hat{p}_y,\hat{z}\hat{p}_x - \hat{x}\hat{p}_z] = \hat{y}\hat{p}_x[\hat{p}_z, \hat{z}] + \hat{p}_y\hat{x}[\hat{z},\hat{p}_z] = i\hbar(\hat{x}\hat{p}_y - \hat{y}\hat{p}_x) = i\hbar \hat{L}_z 
+	$$
+	$$
+		[\hat{L}_z, \hat{L}_x] = i\bar\hat{L}_y, \ \ \ \ [\hat{L}_y, \hat{L}_z] = i\hbar\hat{L}_x
+	$$
+	$$
+		\text{т.е.  }  \ \ [\hat{L}_k, \hat{L}_n] = i\hbar\epsilon_{kns}\hat{L}_s, \ \ \ \ \epsilon_{kns} - \text{символ Леви-Чивиты}
+	$$
+	Квадрат импульса: $\hat{\textbf{L}}^2 = \hat{L}^2_x + \hat{L}^2_y + \hat{L}^2_z$ - по определению. \\
+	$$
+		[\hat{L}_k, \hat{\textbf{L}}^2] = \sum_n (\hat{L}_k\hat{L}^2_n - \hat{L}^2_n\hat{L}_k \underbrace{+ \hat{L}_n\hat{L}_k\hat{L}_n - \hat{L}_n\hat{L}_k\hat{L}_n}_{\text{добавили, вычли}}) = \sum_n ([\hat{L}_k, \hat{L}_n]\hat{L}_n + \hat{L}_n[\hat{L}_k, \hat{L}_n]) = 
+	$$
+	$$
+		= i\hbar\underbrace{\epsilon_{kns} (\hat{L}_s\hat{L}_n - \hat{L}_n\hat{L}_s)}_{\text{свертка антисим. и сим. тензоров}} = 0
+	$$
+	Определим безразмерный (в единицах $\hbar$) оператор $\hat{\mathcal{L}}$ так: $\hat{\textbf{L}} = \hbar\hat{\mathcal{L}}$. \\
+	Оператор $\hat{\mathcal{L}}$ подходит для алгебры операторов момента и его спектр отличается от спектра $\hat{\textbf{L}}$ домножением на $\hbar$. Найдем собственные функции $\hat{\mathcal{L}}^2$ и $\hat{\mathcal{L}}_z$:
+	$$
+		\hat{\mathcal{L}} = -i\hat{\textbf{r}}\times\nabla
+	$$
+	$$
+		\hat{\mathcal{L}}_x = -i\left(y\frac{\partial}{\partial z} - z\frac{\partial}{\partial y}\right), \ \ \ \hat{\mathcal{L}}_y = -i\left(z\frac{\partial}{\partial x} - x\frac{\partial}{\partial z}\right), \ \ \ \hat{\mathcal{L}}_z = -i\left(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}\right)
+	$$
+	$$
+		\text{переход в сфер. сис. коорд. } \ \ \ x = rsin\theta cos\varphi, \ \ \ y = rsin\theta sin\varphi, \ \ \ z = rcos\varphi 	
+	$$
+	$$
+		0 \le r \le \inf, \ \ \ 0 \le \theta \le \pi, \ \ \ 0 \le \varphi \le 2\pi 
+	$$
+	Для $\psi(x,y,z)$, $\rho = \sqrt{x^2+y^2}$:
+	$$
+		\frac{\partial\psi}{\partial\theta} = rcos\theta\left(\frac{\partial\psi}{\partial x}cos\varphi + \frac{\partial\psi}{\partial y}sin\varphi\right) - \frac{\partial\psi}{\partial z}rsin\theta = z\left(\frac{\partial\psi}{\partial x}\frac{x}{\rho} + \frac{\partial\psi}{\partial y}\frac{y}{\rho}\right) - \rho\frac{\partial\psi}{\partial z}
+	$$
+	$$
+		\frac{\partial\psi}{\partial\varphi} = rsin\theta\left(-\frac{\partial\psi}{\partial x}sin\varphi + \frac{\partial\psi}{\partial y}cos\varphi\right) = -y\frac{\partial\psi}{\partial x} + x \frac{\partial\psi}{\partial y} = i\hat{\mathcal{L}}_z\psi 
+	$$
+	\begin{tiny}Первое домножаем на $\frac{x}{\rho}$, а второе на $\frac{yz}{\rho^2}$ и складываем. А потом первое на $\frac{y}{\rho}$, а второе на $\frac{xz}{\rho^2}$.\end{tiny}
+	$$
+		z\frac{\partial\psi}{\partial x}-x\frac{\partial\psi}{\partial z} = \frac{x}{\rho}\frac{\partial\psi}{\partial\theta} - \frac{yz}{\rho^2}\frac{\partial\psi}{\partial\varphi} = i\hat{\mathcal{L}}_y\psi
+	$$
+	$$
+		y\frac{\partial\psi}{\partial z} - z\frac{\partial\psi}{\partial y} = -\frac{y}{\rho}\frac{\partial\psi}{\partial\theta} - \frac{xz}{\rho^2}\frac{\partial\psi}{\partial\varphi} = i\hat{\mathcal{L}}_x\psi
+	$$
+	получили:
+	$$
+		\begin{array}{lcl}
+			\hat{\mathcal{L}}_x & = & i\left(sin\varphi\frac{\partial}{\partial\theta} + cos\varphi ctg\theta\frac{\partial}{\partial\varphi}\right) \\
+			\hat{\mathcal{L}}_y & = & i\left(-cos\varphi\frac{\partial}{\partial\theta} + sin\varphi ctg\theta\frac{\partial}{\partial\varphi}\right) \\
+			\hat{\mathcal{L}}_z & = & -i\frac{\partial}{\partial\varphi} \\
+		\end{array}
+	$$
+	Покажем, что у $\hat{\mathcal{L}}_z$ и $\hat{\mathcal{L}}^2$ есть общий собственный вектор:
+	$$
+		\hat{\mathcal{L}}_{\pm} = e^{\pm i\varphi}\left(\pm\frac{\partial}{\partial\theta} + ictg\theta\frac{\partial}{\partial\varphi}\right), \ \ \ \hat{\mathcal{L}}^2 = \hat{\mathcal{L}}_{-}\hat{\mathcal{L}}_{+}+\hat{\mathcal{L}}_z(\hat{\mathcal{L}}_z + 1),
+	$$
+	$$
+		 \hat{\mathcal{L}}^2 = -\left(\frac{1}{sin\theta}\frac{\partial}{\partial\theta}\left(sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{sin^2\theta}\frac{\partial^2}{\partial\varphi^2}\right)
+	$$
+	$$
+		\hat{\mathcal{L}}^2\psi_{j,m} = j(j + 1)\psi_{j,m}, \ \ \ \hat{\mathcal{L}}_z\psi_{j,m} = m\psi_{j,m} \ \ \Rightarrow \ \ \left(-i\frac{\partial}{\partial\varphi} - m\right)\psi_{j,m} = 0 \ \ \Rightarrow 
+	$$
+	$$
+		\Rightarrow \ \  \psi_{j,m}(\theta,\varphi) = f_j(\theta)e^{im\varphi}, \ \ \ \text{требуем однозначности}(\psi(\theta,\varphi) = \psi(\theta, \varphi+2\pi)) \ \ \Rightarrow
+	$$
+	$$
+		\Rightarrow \ \ e^{2\pi mi} = 1 \ \ \Rightarrow \ \ m = 0, \pm1, \pm2, ...
+	$$
+	$$
+		\text{но } m \ \text{пробегает от } -j \ \text{до } j \ \ \Rightarrow j = 0, 1, 2, ... - \ \text{целое} 
+	$$
+	Рассмотрим $\psi_{j,j} = f_j(\theta)e^{ij\varphi}$. Знаем: $\hat{\mathcal{L}}_{+}\psi_{j,j} = 0$
+	$$
+		\Rightarrow \ \ e^{i\varphi}\left(\frac{\partial}{\partial\theta} + ictg\theta\frac{\partial}{\partial\varphi}\right)f_j(\theta)e^{ij\varphi} = 0
+	$$
+	Замена $s = sin\theta$. Для $f_j$ имеем уравнение:
+	$$
+		\left(\frac{d}{ds}-\frac{j}{s}\right)f_j = 0 \ \ \Rightarrow \ \ f_j = cx^j
+	$$
+	Поэтому $\forall j \in\mathbb{N}$ и $m = j$ существует собственная функция 
+	$$
+		\psi_{j,j} (\theta,\varphi) = c_j sin^j\theta e^{ij\varphi}
+	$$
+	т.е. спектр $\hat{\mathcal{L}}^2$ и $\hat{\mathcal{L}}_z$ невырожден. Ищем теперь остальные. Требуем выполнения $\hat{\mathcal{L}}_{\pm}\psi_{j,m} = (j(j + 1)-m(m\pm1))^{\frac{1}{2}}\psi_{j,m\pm1}$. Многократно действуем оператором $\hat{\mathcal{L}}_{\pm}$, получаем 
+	$$
+		\psi_{j,m} = \left(\frac{(j + m)!}{(2j)!(j-m)!}\right)^{\frac{1}{2}}\hat{\mathcal{L}}^{j-m}_{-}\psi_{j,j} = \left(\frac{(j - m)!}{(2j)!(j+m)!}\right)^{\frac{1}{2}}\hat{\mathcal{L}}^{j+m}_{+}\psi_{j,-j}
+	$$
+	используем явный вид:
+	$$
+		\hat{\mathcal{L}}^{j+m}_{\pm}e^{im\varphi}f(\theta) = e^{m\pm1)\varphi}\left(\pm\frac{d}{d\theta}-m\frac{cos\theta}{sin\theta}\right)f(\theta) = \mp e^{i(m\pm1)\varphi}sin^{1\pm m}\theta \frac{d}{dcos\theta}sin^{\mp m}\theta f(\theta)
+	$$
+	$$
+		\hat{\mathcal{L}}^{n}_{\pm} e^{im\varphi}f(\theta)=(\mp1)^ne^{i(m\pm n)\varphi}sin^{n\pm m}\theta \frac{d^n}{d(cos\theta)^n}(sin^{\pm m}\theta f(\theta))
+	$$
+	из $\|\psi_{j,j}\|=1$ имеем $|c_j| = \frac{1}{2^jj!}\left(\frac{(2j+1)!}{4\pi}\right)^{\frac{1}{2}}$
+	$$
+		\psi_{j,m} = c_j\left(\frac{(j + m)!}{(2j)!(j-m)!}\right)^{\frac{1}{2}}e^{im\varphi}sin^{-m}\theta\frac{d^{j-m}}{d(cos\theta)^{j-m}}sin^{2j}\theta
+	$$
+	при $m = -j$ имеем $\psi_{j,-j} = (-1)^jc_je^{-ij\varphi}sin^j\theta$
+	$$
+		\Rightarrow \ \ \psi_{j,m} = (-1)^mc_j\left(\frac{(j-m)!}{(2j)!(j+m)!}\right)^{\frac{1}{2}}e^{im\varphi}sin^m\theta\frac{d^{j+m}}{d(cos\theta)^{j+m}}sin^{2j}\theta
+	$$
+	И тогда окончательно получаем собственные функции $\hat{\mathcal{L}}^2$ и $\hat{\mathcal{L}}_z$:
+	$$
+		\psi_(\theta,\varphi) = (-1)^{\frac{m+|m|}{2}}\left(\frac{2j+1}{4\pi}\frac{(j-|m|)!}{(j+|m|)!}\right)^{\frac{1}{2}}P^{|m|}_j(cos\theta)e^{im\varphi},
+	$$
+	где $P^m_j(x) = \frac{1}{2^jj!}(1-x^2)^{\frac{m}{2}}\frac{d^{j+m}}{dx^{j+m}}(x^2-1)^j$ - функции Лежандра.\\
+	Функции $\psi_{j,m}$ называют сферическими функциями. 
