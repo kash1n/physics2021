@@ -1,1 +1,206 @@
 \section{Гармонический осциллятор}
+	\subsection{В классической механике}
+		Гармоническим осциллятором (ГО) в классической механике называется система, описываемая гамильтонианом
+		$$
+			H = \frac{1}{2m}p_x^2+\frac{m\omega^2}{2}x^2
+		$$
+		Общее решение уравнения гармонических колебаний $\ddot x +\omega^2x = 0$ 
+		$$
+			x(t) = Acos(\omega t + \theta),
+		$$
+		где $A$ и $\theta$ - произвольные постоянные, описывает гармонические колебания частицы около точки равновесия $x=0$. Энергия осциллятора - интеграл движения:
+		$$
+			E = \frac{1}{2}m\omega^2 A^a = const
+		$$
+		принимает произвольные неотрицательные значения.
+		
+		\begin{scriptsize}
+		\begin{spacing}{0.3}
+		\textcolor{gray}{
+			К ГО сводится задача о движении частицы в потенциальном поле $U(q)$ при условии, что потенциал имеет локальный минимум в точке $q = q_0$, и в ее малой окрестности справедливо разложение $U(q) = U(q_0) + \frac{1}{2}U''(q_0)(q-q_0)^2 + ...$. Введя новую координату $x-q-q_0$ и обозначив $U''(q_0) = m\omega^2 \ge 0$, получим потенциал ГО при условии, что энергий  частицы $E$ близка к $U(q_0)$, так что можно пренебречь высшими членами разложения по $x$. При этом всегда можно положить $U(q_0) = 0$ в виду произвола выбора начала отчета энергии.
+		}	
+		\end{spacing}
+		\end{scriptsize}
+	
+	\subsection{В квантовой механике}
+		\begin{scriptsize}
+		\begin{spacing}{0.3}
+		\textcolor{gray}{
+			Пусть, например, имеется некоторая кристаллическая решетка. Атомы коллеблются около своих положений равновесий. Эти колебания в первом приближении можно описать в вде ГО.\\
+			Или, используя ГО, можно описать колебания в двухатомной молекуле. Когда есть два атома и они чуть-чуть меняю расстояние между собой - в первом приближении это гармонические колебания.\\
+			Для таких задач классическая теория неприменима.
+		}	
+		\end{spacing}
+		\end{scriptsize}	
+		\bigskip
+		В квантовой механике ГО описывается гамильтонианом
+		$$
+			\hat{H} = \frac{1}{2m}\hat{p}^2_x+\frac{1}{2}m\omega^2\hat{x}^2, \ \ \ \ [\hat{x},\hat{p}_x]=i\hbar
+		$$
+		\subsubsection{Стационарные состояния ГО}
+			(Из этого пункта, если мало времени, надо переписать только метод факторизации. В нем все основные результаты.)\\
+			Рассмотрим стационарные состояния \textcolor{gray}{т.е. когда $\frac{\partial\hat{H}}{\partial t} = 0$. тогда решение УШ принимает специальный вид $\psi_E = e^{-\frac{i}{\hbar}Et}\psi_E$}:
+			$$
+				\psi(t, x) = e^{-\frac{i}{\hbar}Et}\varphi(x)
+			$$
+			\textcolor{gray}{Эти состояния характеризуются заданными значениями энергии $E$, $\varphi$ - собственный вектор $\hat{H}$ со значением $E$}\\
+			В координатном представлении ($\hat{x} = x,\ \hat{p}_x = -i\hbar\frac{\partial}{\partial x}$) стационарное УШ ($(\hat{H} - E) \varphi = 0$) примет вид
+			$$
+				\frac{\partial^2\varphi}{\partial x^2}+\frac{2m}{\hbar^2}\left(E-\frac{m}{2}\omega^2x^2\right)\varphi = 0
+			$$
+			Введем безразмерную координату $\xi = \frac{x}{x_0}, \ x_0 = \sqrt{\frac{\hbar}{m\omega}}$и параметр $\lambda = \frac{2E}{\hbar\omega}$, тогда получим
+			$$
+				\varphi'' + (\lambda + \xi^2)\varphi = 0, \ \ \ \ (\text{производные тут по } \xi)
+			$$
+			Решаем этот дифур. Сперва выделим асимптотику при $|\xi|\rightarrow\infty$
+			$$
+				\varphi''-\xi^2\varphi\simeq0, \ \ \ \varphi\simeq\varphi_{\infty}=C_1e^{-\frac{\xi^2}{2}}+C_2e^{\frac{\xi^2}{2}} \ (\text{если отбросить низшие степени }\ \xi)
+			$$
+			Требуем $\|\varphi\|<\infty$, \textcolor{gray}{ищем финитное движение, т.е. предполагаем, что частица не может улететь далеко от положение равновесия} тогда решение должно иметь вид:
+			$$
+				\varphi = e^{-\frac{\xi^2}{2}}\nu(\xi)
+			$$
+			где $\nu$ - полином конечной степени. Подставляем, получаем уравнение на $\nu$:
+			$$
+				\nu''-2\xi\nu'+(\lambda-1)\nu = 0, \ \ \ \text{ищем решение в виде степеного ряда} \ \nu = \sum_{k = 0}^{\infty}c_k\xi^k
+			$$
+			Подставляем ряд в уравнение, делаем сдвиг по индексам
+			$$
+				\sum_{k = 0}^{\infty}\xi^k((k+2)(k+1)c_{k+2}+(\lambda - 1- 2k)c_k) = 0
+			$$
+			равенство нулю возможно только если все коэффициенты равны нулю, получили рекуррентное соотношение
+			$$
+				c_{k+2}=\frac{2k+1-\lambda}{(k+1)(k+2)}c_k
+			$$
+			если $\lambda$- вещественное, то ряд бесконечный и представим в виде экспоненты, тагда нарушится $\|\varphi\|<\infty$, получатся начиная с некоторого $k$ все $c_k$ должны быть 0, а значит $\lambda = 2n+1$ для некоторого $n$. Т.е. $\lambda$ - целое и положительное. Из определения $\lambda$ получаем
+			$$
+				E_n = \hbar\omega\left(n + \frac{1}{2}\right)
+			$$
+			то есть мы показали квантование! И минимальная энергия $E_0 = \frac{\hbar\omega}{2}>0$. Т.е. положения покоя не существует вообще!
+			\bigskip
+			\begin{scriptsize}
+			\begin{spacing}{0.3}
+				Полученное рекуррентное соотношение связывает коэффициенты с четными и нечетными индексами. Это не случайно. Гамильтониан ГО - четная функция, значит его собственные вектора $\varphi_n(x)$ и $\varphi_n(-x)$ отвечают одному собственному значению $E_n$, т.е. $\varphi_n(x) = C\varphi_n(-x)$. В одномерном случае вырожденность невозможна. А произыольная функция всегда может быть представлена в виде линейной комбинации четной и нечетной. Значит собственные функции должны быть определенной четности. Из рекуррентного соотношения коэффициентов видно, что четность совпадает с четностью $n$, т.е. $\varphi(-x) = (-1)^n\varphi(x)$. Тогда полагая $c_0 \ne 0, \ c_1 = 0$ получим четные собст.функции, а $c_0=0, \ c_1\ne0$ - нечетные. 
+			\end{spacing}
+			\end{scriptsize}
+			\bigskip
+			\textbf{Другой метод.} Выведем факт, что $E_0>0$ из соотношения неопределенности.\\
+			Для стационарных состояний при вычислении средних $\langle x \rangle$ и $\langle p_x \rangle$ под интегралом будет стоять квадрат модуля $\varphi_n$ - четной или нечетной функции. Этот квадрат модуля будет четным, а значит интегралы будут равны нулю
+			$$
+				\langle x \rangle = \langle p_x \rangle = 0
+			$$
+			Тогда в соотношении неопределенности вместо дисперсий будут просто средние квадратов
+			$$
+				\langle x^2 \rangle \langle p_x^2 \rangle \ge \frac{\hbar^2}{4} \ \ \Rightarrow \ \ \langle p_x^2 \rangle \ge \frac{\hbar^2}{4\langle x^2 \rangle}
+			$$ 
+			$$
+				\Rightarrow \ \ E = \langle \hat{H} \rangle = \frac{1}{2m}\langle p_x^2 \rangle + \frac{1}{2}m\omega^2\langle x^2 \rangle \ge \frac{\hbar^2}{8m\langle x^2 \rangle} + \frac{1}{2}m\omega^2\langle x^2 \rangle \equiv f(\langle x^2 \rangle)
+			$$
+			минимум $f$ достигается при $\langle x^2 \rangle = \frac{\hbar}{2m\omega} \ \Rightarrow \ E_{min} = \frac{1}{2}\hbar\omega$.\\
+			\noindent Дальше найдем спектр(снова) и собственные функции $\hat{H}$ методом факторизации.\\
+			\textbf{Метод факторизации.}\\
+			\begin{scriptsize}
+			\begin{spacing}{0.3}
+			\textcolor{gray}{
+				Этот метод может быть применен к гомильтонианам, которые могут быть представлены (с точностью до константы) в виде произведения двух эрмитово-сопряженных операторов.
+			}	
+			\end{spacing}
+			\end{scriptsize}
+			$$
+				\hat{H} = \frac{\hbar\omega}{2}\hat{h}, \ \ \ \hat{h} = \left(\frac{\hat{p}_x}{p_0}\right)^2+\left(\frac{\hat{x}}{x_0}\right)^2, \ \ \ x_0 = \sqrt{\frac{\hbar}{m\omega}}, \ \ \ p_0 = \frac{\hbar}{x_0} = \sqrt{\hbar m \omega}
+			$$
+			$$
+				\hat{h} = \left(\frac{\hat{x}}{x_0} - i\frac{\hat{p}_x}{p_0}\right)\left(\frac{\hat{x}}{x_0}+i\frac{\hat{p}_x}{p_0}\right) = -i\left[\frac{\hat{x}}{x_0},\frac{\hat{p}_x}{p_0}\right]
+			$$
+			Введем $\hat{a}$ и $\hat{a}^{*}$ - эрмитовы сопряженые друг другу операторы
+			$$
+				\hat{a} = \frac{1}{\sqrt{2}}\left(\frac{\hat{x}}{x_0} + i\frac{\hat{p}_x}{p_0}\right), \ \ \ \hat{a}^{*} = \frac{1}{\sqrt{2}}\left(\frac{\hat{x}}{x_0} - i\frac{\hat{p}_x}{p_0}\right), \ \ \ \left[\hat{a},\hat{a}^{*}\right] = 1
+			$$
+			Зная, что $[\hat{x},\hat{p}_x] = i\hbar$ и $x_0p_0=\hbar$ получаем:
+			$$
+				\hat{H} = \hbar\omega(\hat{a}^{*}\hat{a} + \frac{1}{2}) \ \ \ \ \text{-факторизовали!}
+			$$
+			Спектр $\hat{H}$ будет отличаться от спектра $\hat{N}=\hat{a}^{*}\hat{a}$ на константу. Тогда ищем спектр $\{\lambda\}$ и нормированные собственные вектора $\varphi_{\lambda}$ оператора $\hat{N}$.
+			$$
+				\hat{N}\varphi_{\lambda} = \lambda\varphi_{\lambda}, \ \ \ \ \|\varphi_{\lambda}\|=1
+			$$
+			Покажем, что $\lambda>0$. Домножим $\hat{N}\varphi_{\lambda}=\lambda\varphi_{\lambda}$ на $\varphi_{\lambda}$ скалярно. Поучим $(\varphi_{\lambda}, \hat{N}\varphi_{\lambda})=\lambda\|\varphi_{\lambda}\|^2 = \lambda$. Тогда
+			$$
+				\lambda = (\varphi_{\lambda},\hat{N}\varphi_{\lambda}) = (\hat{a}\varphi_{\lambda},\hat{a}\varphi_{\lambda}) = \|\hat{a}\varphi_{\lambda}\|^2\ge0
+			$$
+			Тогда спектр $\hat{H}$ ограничен снизу:
+			$$
+				E_{\lambda} = \hbar\omega\left(\lambda + \frac{1}{2}\right) \ge \frac{1}{2}\hbar\omega 
+			$$
+			$\varphi_0$, соответствующая $\lambda = 0$ удовлетворяет уравнению $\hat{a}\varphi_0=0$ (из равенства нулю нормы).\\
+			Заметим, что $\hat{N}(\hat{a}\varphi_{\lambda})=(\lambda-1)\hat{a}\varphi_{\lambda}$ т.к.:
+			$$
+				\hat{a}\hat{N}=\hat{a}\hat{a}^{*}\hat{a} \underbrace{=}_{\left[\hat{a},\hat{a}^{*}\right]=1} (1+\hat{a}^{*}\hat{a})\hat{a} = (1+\hat{N})\hat{a} \ \ \Rightarrow \ \ \hat{a}\hat{N}\varphi_{\lambda} = (1+\hat{N})\hat{a}\varphi_{\lambda} \underbrace{=}_{\varphi_{\lambda} - \text{с.в.}} \lambda\hat{a}\varphi_{\lambda}
+			$$
+			Получили, что если есть $\varphi_{\lambda}$, то $\hat{a}\varphi_{\lambda}$ - это собственный вектор (с коэффициентом) $\hat{N}$, отвечающий собственному значению $(1-\lambda)$, т.е.
+			$$
+				\hat{a}\varphi_{\lambda} = C_{\lambda}^{(-)}\varphi_{\lambda-1}, \ \ \ C_{\lambda}^{(-)} \underbrace{=}_{\text{скалярно в квадтар}} \|\hat{a}\varphi_{\lambda}\| = \sqrt{\lambda} \ \ \Rightarrow \ \ \varphi_{\lambda - 1} = \frac{1}{\sqrt{\lambda}}\hat{a}\varphi_{\lambda}
+			$$
+			$$
+				\Rightarrow \ \ \varphi_{\lambda - k} = (\lambda(\lambda - 1)\cdots (\lambda - k + 1))^{-\frac{1}{2}}\hat{a}^k\varphi_{\lambda}
+			$$
+			Но спектр ограничен снизу нулем, значит $\lambda-k\ge0$, а поскольку $\varphi_0$ существует, то $\lambda$ - целое, неотрицательное.\\
+			Так, \textbf{нашли спектр} $\hat{H}$: $E_n = \hbar\omega\left(n+\frac{1}{2}\right)$.\\
+			Теперь найдем собственные функции.\\
+			$$
+				\left[\hat{N},\hat{a}^{*}\right]=\left[\hat{a},\hat{N}\right]^{*}=\hat{a}^{*}, \ \ \ \hat{N}\varphi_n=n\varphi_n
+			$$
+			$$
+				\Rightarrow \ \ \hat{N}\hat{a}^{*}\varphi_n = \hat{a}^{*}(\hat{N}+1)\varphi_n = (n+1)\hat{a}^{*}\varphi_n \ \ \Rightarrow \ \ \hat{a}^{*}\varphi_n=C_n^{(+)}\varphi_{n+1}
+			$$
+			$$
+				\|\hat{a}^{*}\varphi_n\|^2=(\hat{a}^{*}\varphi_n,\hat{a}^{*}\varphi_n)=(\varphi_n,\hat{a}\hat{a}^{*}\varphi_n) = (\varphi_n, (1+\hat{N})\varphi_n)=n+1 \ \ \Rightarrow \ \ C_n^{(+)} = \sqrt{n+1}
+			$$
+			$$
+				\Rightarrow \ \ \hat{a}^{*}\varphi_n=\sqrt{n+1}\varphi_{n+1}, \ \ \ \varphi_n = \frac{1}{\sqrt{n!}}(\hat{a}^{*})^n\varphi_0
+			$$
+			Найдем $\varphi_0$ явно (знаем: $\hat{a}\varphi_0=0$):
+			$$
+				\hat{a} = \frac{1}{\sqrt{2}}\left(\frac{\hat{x}}{x_0} + i\frac{\hat{p}_x}{p_0}\right) = \left(\xi +\frac{\partial}{\partial \xi}\right), \ \ \ \xi = \frac{x}{x_0}
+			$$
+			$$
+				\left(\xi +\frac{\partial}{\partial \xi}\right)\varphi_0=0 \ \ \Rightarrow \ \ \varphi_0 = C_0e^{\frac{\xi^2}{2}}
+			$$
+			$$
+				\|\varphi_0\|^2 = 1 \ \ \Rightarrow \ \ \int_{-\infty}^{\infty}dx|\varphi_0|^2 = |C_0|^2x_0\int_{-\infty}^{\infty}e^{-\xi^2}d\xi = 1 \ \ \Rightarrow \ \ C_0 = (x_0\sqrt{\pi})^{-\frac{1}{2}}
+			$$
+			И поскольку $\varphi_n = \frac{1}{\sqrt{n!}}(\hat{a}^{*})^n\varphi_0$, то \textbf{нашли собственные функции} $\hat{H}$:
+			$$
+				\varphi_n = (x_0\sqrt{\pi}2^nn!)^{-\frac{1}{2}}H_n(\xi)e^{-\frac{\xi^2}{2}}, 
+			$$
+			где $H_n(xi) = (-1)^ne^{\xi^2}\frac{d^n}{d\xi^n}e^{-\xi^2}$ - полиномы Эрмита.
+		\subsubsection{Когерентные состояния ГО}
+			Это такие состояния, которые минимизируют соотношение неопределенности координаты и импульса. Они подчиняются уравнению:
+			$$
+				\left(\frac{\hbar}{2\sigma^2}(\hat{x}-x_0) + i(\hat{p}_x-p_0)\right)\varphi = 0, \ \ \ \sigma^2 = \langle(\Delta x)^2\rangle
+			$$
+			Для ГО это в точности задача на собственные вектора $\hat{a}\phi_{\alpha} = \alpha\phi_{\alpha}$. $\alpha$ - произвольное комплексно число. (комплексность собственных значений объясняется неэрмитовостью $\hat{a}$) \\
+			Найдем выражение для $\phi_{\alpha}$ в базисе из собственных векторов гамильтониана (энергетическое представление):
+			$$
+				\phi_{\alpha} = \sum\limits_{n = 0}^{\infty} c_n\varphi_n, \ \ \ \hat{a}\phi_{\alpha} = \sum\limits_{n = 1}^{\infty}c_n\sqrt{n}\varphi_{n-1}=\alpha\sum\limits_{n = 0}^{\infty}c_n\varphi_n
+			$$
+			$$
+				\Rightarrow \ \ c_{n+1} = \frac{\alpha}{\sqrt{n+1}}c_n, \ \ \ c_n = \frac{\alpha^n}{\sqrt{n!}}c_0
+			$$
+			$c_0$ находим из нормировки:
+			$$
+				(\phi_{\alpha},\phi_{\alpha}) = 1 = c_0^2\sum\limits_{n,n'}\frac{(\alpha^{*})^{n'}\alpha^n}{\sqrt{n'!n!}}(\varphi_{n'},\varphi_n) \underbrace{=}_{(\varphi_{n'},\varphi_n)=\delta_{n'n}} c_0^2\sum\limits_{n = 0}^{\infty}\frac{(|\alpha|^2)^n}{n!} \ \ \Rightarrow \ \ c_0 = e^{-\frac{|\alpha|^2}{2}}
+			$$
+			Получили:
+			$$
+				\phi_{\alpha} = e^{-\frac{|\alpha|^2}{2}}\sum\limits_{n = 0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\varphi_n 
+			$$
+			Получилось, что вероятность обнаружить ГО в стационарном состоянии с энергией $E_n$ равна
+			$$
+				w_n = |(\varphi_n, \phi_{\alpha})|^2 = \frac{|\alpha|^{2n}}{n!}e^{-|\alpha|^2}
+			$$
+			Это распределение Пуассона. Т.е. стационарные состояния, из которых состоит когерентное состояние, распределены по Пуассону с параметром $\alpha$, а физический смысл 
+			$\alpha$ такой:
+			$$
+				|\alpha|^2 = \langle n \rangle = \sum\limits_{n = 0}^{\infty}nw_n \ \ \ \ \text{- среднее значение энергии}
+			$$
