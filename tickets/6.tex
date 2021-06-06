@@ -1,1 +1,135 @@
 \section{Изменение наблюдаемых со временем.}
+	В квантовой механике нельзя ввести производную по времени через изменение величины в два близких момента времени. Т.к. имеющая определенное значение величина в один момент времени не имеет определенного значения в следующий момент времени. Будем отталкиваться от среднего.
+	\subsection{Оператор производной, как эволюция среднего значения наблюдаемых}
+		Пусть $\psi$ - произвольное состояние. Оно эволюционирует со временем согласно УШ $\left(i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi\right)$. Среднее значение наблюдаемой может быть выражено так: $\langle A\rangle = (\psi,\hat{A}\psi)$, получим уравнение для изменения среднего значения:
+		$$
+			\frac{d\langle A\rangle}{dt} \underbrace{=}_{\text{дифф. скал. произв.}} \left(\frac{\partial\psi}{\partial t},\hat{A}\psi\right) + \left(\psi,\frac{\partial\hat{A}}{\partial t}\psi\right) + \left(\psi,\hat{A}\frac{\partial\psi}{\partial t}\right) \underbrace{=}_{\text{УШ}}
+		$$
+		$$
+			\underbrace{=}_{\text{УШ}} -\frac{1}{i\hbar}\left(\hat{H}\psi,\hat{A}\psi\right)+\frac{1}{i\hbar}\left(\psi,\hat{A}\hat{H}\psi\right)+\left(\psi,\frac{\partial\hat{A}}{\partial t}\psi\right) \underbrace{=}_{\hat{H}\text{-самосопр.}}
+		$$
+		$$
+			\underbrace{=}_{\hat{H}\text{-самосопр.}} \left(\psi,\left(\frac{\partial\hat{A}}{\partial t} + \frac{i}{\hbar}\left[\hat{H},\hat{A}\right]\right)\psi\right)
+		$$
+		Т.е. получили, что изменение среднего значения оператора $\hat{A}$ - это среднее значение оператора $\left(\frac{\partial\hat{A}}{\partial t} + \frac{i}{\hbar}\left[\hat{H},\hat{A}\right]\right)$, т.е.
+		$$
+			\frac{d\langle A\rangle}{dt} = \left\langle \frac{\partial\hat{A}}{\partial t} + \frac{i}{\hbar}\left[\hat{H},\hat{A}\right] \right\rangle 
+		$$
+		\textcolor{gray}{
+			Это уравнение - квантовый аналог классического уравнения для динамической переменной $A(q,p,t)$: $\frac{dA}{dt} = \frac{\partial A}{\partial t} + \left\{H,A\right\}$, где $\{\}$ - это скобка Пуассона: $\left\{H,A\right\} = \sum\limits_k\left(\frac{\partial H}{\partial q_k}\frac{\partial A}{\partial q_k} - \frac{\partial H}{\partial p_k}\frac{\partial A}{\partial p_k}\right)$. Таким образом при переходе к квантовой теории $\{H,A\} \rightarrow \frac{i}{\hbar}[H,A]$. Заметим, что алгебраические свойства скобки Пуассона совпадают со свойствами коммутатора.\\
+		}
+		Таким образом \textbf{оператор производной по времени} назовем
+		$$
+			\hat{\dot{A}} = \frac{\partial\hat{A}}{\partial t} + \frac{i}{\hbar}\left[\hat{H},\hat{A}\right]
+		$$
+		тогда 
+		$$
+			\frac{d\langle A\rangle}{dt} = \left(\psi,\hat{\dot{A}}\psi\right) = \langle \dot{A}\rangle
+		$$
+		Если $\hat{A}$ не зависит от времени явно и коммутирует с $\hat{H}$, тогда
+		$$
+			\frac{\partial\hat{A}}{\partial t} = 0, \ \ \ \left[\hat{H},\hat{A}\right] = 0, \ \ \Rightarrow \ \ \forall \ \text{состояния} \ \psi \ \ \langle A\rangle = const
+		$$
+		тогда $\hat{A}$ называется \textbf{интегралом движения}.\\
+		Заметим: если $\frac{\partial\hat{H}}{\partial t} = 0$, то $\hat{H}$ - интеграл движение. Его собственные значения - значения энергии, а значит средняя энергия в таком случае будет константой.
+	\subsection{Стационарные состояния}
+		Рассмотрим частный случай гамильтониана, когда он явно не зависит от времени
+		$$
+			\frac{\partial\hat{H}}{\partial t} = 0
+		$$
+		Тогда существуют специальные решения УШ (они легко получаются методом разделения переменных):
+		$$
+			\psi_E = e^{-\frac{i}{\hbar}Et}\varphi_E
+		$$
+		тут $\varphi_E$ - не зависят от времени и являются собственными векторами (как и $\psi_E$, поскольку получаются домножением на константу) гамильтониана. $E$ - значение энергии, собственное значение, отвечающее $\varphi_E$ ($\hat{H}\varphi_E = E\varphi_E$). $\psi_E$ - \textbf{стационарное состояние}.\\
+		Свойства стационарных состояний:
+		\begin{itemize}
+			\item 
+				Плотность вероятности $\rho = \psi^{*}\psi = |\psi|^2$ и поток вероятности $\textbf{j} = \frac{\hbar}{2mi}(\psi^{*}\nabla \psi - (\nabla \psi)^{*}\psi)$ не зависят от времени (т.к. состояния зависят от времени только чисто мнимым образом)
+				$$
+					\frac{\partial\rho}{\partial t} = 0, \ \ \ \frac{\partial\textbf{j}}{\partial t} = 0
+				$$
+			\item 
+				Среднее значение наблюдаемых, которые не зависят от времени, тоже не зависит от времени:
+				$$
+					\frac{\partial \hat{A}}{\partial t} = 0 \ \ \Rightarrow \ \ \langle A\rangle = (\psi_E,\hat{A}\psi_E) = (\varphi_E, \hat{A}\varphi_E) = const
+				$$
+				\begin{scriptsize}
+				\begin{spacing}{0.3}
+				\textcolor{gray}{
+					Последний переход получился так: экспоненту из выражения $\psi_E$ в правой части скалярного произведения перебрасываем влево, комплексно сопрягая. Слева в выражении $\psi_E$ тоже есть экспонента, получается квадрат модуля. Он равен единице.
+				}	
+				\end{spacing}
+				\end{scriptsize}	 
+			\item
+				Вероятность обнаружить собственное значение $\alpha$ наблюдаемой $\hat{A}$ тоже не зависит от времени (тоже потому, что состояния зависят от времени только мнимым образом)
+				$$
+					w(\alpha) = |(\psi_{\alpha},\psi_E)|^2 = const
+				$$
+			\end{itemize}
+		Произвольное нестационарное состояние может быть разложено по стационарным состояниям - собственным векторам $\hat{H}$:
+		$$
+			\psi(t,\textbf{r}) = \sum\limits_n c_n\varphi_n(\textbf{r})e^{-\frac{i}{\hbar}E_nt}
+		$$
+	\subsection{Теоремы Эренфеста}
+		Рассмотрим случай одномерного движения частицы в поле $U(x)$, тогда гамильтониан выглядит так:
+		$$
+			\hat{H} = \frac{\hat{p}_x^2}{2m} + U(\hat{x})
+		$$
+		\textbf{Формулировка:}
+		$$
+			\frac{d\langle x\rangle}{dt} = \frac{\langle p_x\rangle}{m}, \ \ \ \ \frac{d\langle p_x\rangle}{dt} = -\left\langle\frac{\partial U}{\partial x}\right\rangle
+		$$
+		\textcolor{gray}{
+			Если взять производную еще раз, получим квантовое обобщение закона Ньютона:
+			$$
+				m\frac{d^2\langle x\rangle}{dt^2} = -\left\langle\frac{\partial U}{\partial x}\right\rangle 
+			$$
+			\begin{scriptsize}
+			\begin{spacing}{0.3}
+				Почему это не классическая механика? Потому что справа стоит среднее значение, но это не функция от среднего значения $\langle x\rangle$. Т.к. в общем случае среднее значение функции не является функцией от среднего значения аргумента.
+			\end{spacing}
+			\end{scriptsize}	 
+		}
+		\bigskip
+		\textbf{Доказательство:}\\
+		$$
+			\hat{\dot{x}} = \frac{i}{\hbar}\left[\hat{H},\hat{p}_x\right] = \frac{i}{2m\hbar}\left[\hat{p}^2_x,\hat{x}\right]
+		$$
+		$$
+			\left[\hat{p}^2_x,\hat{x}\right] = \hat{p}^2_x\hat{x} - \hat{x}\hat{p}^2_x \underbrace{+ \hat{p}_x\hat{x}\hat{p}_x - \hat{p}_x\hat{x}\hat{p}_x}_{\text{добавили, вычли}} = \hat{p}_x\left[\hat{p}_x,\hat{x}\right] + \left[\hat{p}_x,\hat{x}\right]\hat{p}_x \underbrace{=}_{\left[\hat{x},\hat{p}_x\right] = i\hbar} -2i\hbar\hat{p}_x
+		$$
+		$$
+			\Rightarrow \ \ \hat{\dot{x}} = \frac{\hat{p}_x}{m} \ \ \Rightarrow \ \ \frac{d\langle x\rangle}{dt} = \frac{\langle p_x\rangle}{m}
+		$$
+		$$
+			\hat{\dot{p}}_x = \frac{i}{\hbar}\left[\hat{H},\hat{p}_x\right] = \frac{i}{\hbar}\left[U(\hat{x}),\hat{p}_x\right] \underbrace{=}_{\left[U(\hat{x},\hat{p}_x\right] = -i\hbar\left[U(\hat{x}),\frac{\partial}{\partial x}\right] = i\hbar\frac{\partial U}{\partial x}} -\frac{\partial U}{\partial x}
+		$$
+		$$
+			\Rightarrow \ \ \frac{d\langle p_x\rangle}{dt} = -\left\langle\frac{\partial U}{\partial x}\right\rangle
+		$$
+	\subsection{Соотношение неопределенности "время-энергия"}
+		Общее соотношение неопределенности (для некоторых наблюдаемых $A$ и $B$):
+		$$
+			\left\langle(\Delta A)^2\right\rangle \left\langle(\Delta B)^2\right\rangle \ge \frac{1}{4} \left\langle(\Delta C)^2\right\rangle, \ \ \ \left[\hat{A},\hat{B}\right] = i\hat{C} 
+		$$
+		теперь положим $\hat{B} = \hat{H}, \ \ \frac{\partial\hat{H}}{\partial t} = 0, \ \ \frac{\partial \hat{A}}{\partial t} = 0$. Тогда $\langle[\hat{H},\hat{A}]\rangle = -i\hbar\langle\hat{\dot{A}}\rangle$. Гамильтониан - оператор энергии, поэтому результаты его измерения - это $E$. Тогда СН запишется так:
+		$$
+			\left\langle(\Delta A)^2\right\rangle \left\langle(\Delta E)^2\right\rangle \ge \frac{\hbar^2}{4}\left(\frac{d\langle A \rangle}{dt}\right)^2
+		$$
+		Определим \textbf{характерное время наблюдаемой} $\delta t_A$, как время, за которое среднее значение $\langle A\rangle$ изменилось величину, равную корню из дисперсии.
+		$$
+			\delta t_A = \frac{\left\langle(\Delta A)^2\right\rangle^{\frac{1}{2}}}{\left|\frac{d\langle A\rangle}{dt}\right|}, \ \ \ \text{и для удобства пусть} \ \delta E = \left\langle(\Delta E)^2\right\rangle^{\frac{1}{2}}
+		$$
+		$$
+			\Rightarrow \ \ \delta E\delta t_A \ge \frac{\hbar}{2}
+		$$
+		Это выполнено для любого состояния системы. Тогда определим \textbf{характерное время системы} $\delta t$ как минимум из всех возможных характерных времен наблюдаемых
+		$$
+			\delta t = \underset{A}{inf}\delta t_A
+		$$
+		Получили, что для любого состояния $\psi$ выполнено \textbf{соотношение неопределенности "время-энергия"}:
+		$$
+			\delta E \delta t \ge \frac{\hbar}{2}
+		$$
+		здесь $\delta E$ - неопределенность энергии (она не зависит от времени, т.к. $\frac{\partial \hat{H}}{\partial t} = 0$), а $\delta t$ - время, за которое хотя бы одна наблюдаемая изменит свое значение на корень из своей дисперсии. То есть получили, что если мы измеряем систему в течении времени $\delta t$, то мы сможем достичь точности измерения энергии, ограниченное этим соотношением.
