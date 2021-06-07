@@ -1,1 +1,47 @@
 \section{Распределение Ферми–Дирака. Идеальный ферми-газ.}
+При T = 0 имеем:
+$$n(\varepsilon) = \frac{1}{e^{\frac{\varepsilon-\mu}{T}}+1} = \theta(\mu_{0} - \varepsilon) = \begin{cases}
+  1,   \varepsilon < \mu_{0} \\
+  0,   \varepsilon > \mu_{0}
+\end{cases}$$
+\\
+Рассмотрим интеграл при $\frac{T}{\mu} \ll 1$
+$$J_{\nu} = \int\limits_{0}^{\infty}, d\varepsilon \varepsilon^{\nu} n(\varepsilon)$$ 
+Интегрируем по частям: 
+$$J_{\nu} = \frac{1}{\nu + 1} \int\limits_{0}^{\infty}, d\varepsilon \varepsilon^{\nu + 1} (-\frac{\partial n}{\partial \varepsilon})$$
+Сделаем замену:
+$$x = \frac{\varepsilon - \mu}{T}, \varepsilon = \mu (1+\frac{T}{\mu}x)$$
+Тогда получим:
+$$J_{\nu} = \frac{\mu^{\nu + 1}}{\nu + 1}\int\limits_{-\frac{\mu}{T}}^{\infty}, dx(1 + \frac{T}{\mu}x)^{\nu + 1} \phi(x)$$
+где 
+$$\phi(x) = - \frac{\partial}{\partial x} \frac{1}{e^x + 1} = \frac{e^x}{(e^x + 1)^2} = \frac{1}{4ch^2\frac{x}{2}} = \phi(-x)$$
+Так как $A = \frac{\mu}{T} \gg 1$ и $\phi(x) \sim e^{-|x|}$ при $|x| \gg 1$, то 
+$$\int\limits_{-\frac{-A}{T}}^{\infty} = \int\limits_{-\infty}^{\infty} - \int\limits_{-\infty}^{-A}$$
+$$\int\limits_{-\infty}^{-A} = O(e^{-A})$$
+Следовательно,
+$$J_{\nu} = \frac{\mu^{\nu + 1}}{\nu + 1} \int\limits_{-\infty}^{\infty}, dx \phi(x) \left[ 1+ (\nu +1) \frac{x}{A} + \frac{\nu(\nu + 1)}{2} \frac{x^2}{A^2} + O(A^{-4})
+\right]$$
+С учетом 
+$$\int\limits_{-\infty}^{\infty}, dx \phi(x) = 1, \int\limits_{-\infty}^{\infty}, dx x^2 \phi(x) = \frac{\pi^2}{3}$$
+Получаем асимптотическое разложение:
+$$J_{\nu} =  \frac{\mu^{\nu + 1}}{\nu + 1} \left[ 1 + \frac{\pi^2}{6} \nu(\nu +1) (\frac{T}{\mu})^2 + O((\frac{T}{\mu})^4) \right]$$
+
+Используем его в нашем случае:
+$$N = a V J_{1/2} = aV\frac{2}{3} \mu^{3/2} \left[ 1 + \frac{\pi^2}{6}\frac{1}{2} \frac{3}{2} (\frac{T}{\mu_0})^2 + ... \right] = \frac{2}{3} a V \mu_0^{3/2} $$
+откуда
+$$\frac{\mu}{\mu_0} = \left[ 1 + \frac{\pi^2}{8} (\frac{T}{\mu_0})^2 + ... \right]^{2/3}$$
+$$\frac{\mu}{\mu_0} =  1 - \frac{\pi^2}{12} (\frac{T}{\mu_0})^2 + ...$$
+Здесь $\mu_0 = \left( \frac{3}{2} \frac{N}{aV}\right)^{2/3} = \frac{\overline{h}}{2m}\left(3\pi^2 \frac{N}{V} \right)^{2/3} = \varepsilon_F$ - энергия Ферми (s = 1/2)
+\\
+Энергия
+$$E = aVJ_{3/2} = aV\frac{2}{5} \mu^{5/2} \left[ 1 + \frac{\pi^6}{6} \frac{3}{2} \frac{5}{2} (\frac{T}{\mu_0})^2 + ...\right]$$
+Разделим на $N = \frac{2}{3}aV\mu_0^{3/2}$ и получим:
+$$\frac{E}{N} = \frac{3}{5} \mu_0 (\frac{\mu}{\mu_0})^{5/2} \left[ 1 + \frac{5\pi^2}{8}(\frac{T}{\mu_0})^2 + ... \right]$$
+Отсюда
+$$\frac{E}{N} = \frac{3}{5} \mu_0 \left[ 1 + \frac{5\pi^2}{12}(\frac{T}{\mu_0})^2 + ... \right]$$
+Теплоемкость ($C = \frac{\partial E}{\partial T}$)
+$$\frac{C}{N} = \frac{\pi^2}{2} \frac{T}{\mu_0} + ...$$
+Давление
+$$P = \frac{2}{3} \frac{N}{V} \frac{E}{N} = \frac{2}{5} \frac{N}{V} \mu_0 \left[ 1+ \frac{5\pi^2}{12}(\frac{T}{\mu_0})^2+... \right]$$
+Даже при $T = 0$ давление ферми-газа отлично от нуля:
+$$P(T=0) \sim (\frac{N}{V})^{5/3}$$
